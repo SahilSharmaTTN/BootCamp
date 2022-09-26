@@ -19,7 +19,8 @@ public class CircleMain {
                         break;
                 case 2: circumference(scanner);
                         break;
-                case 3: return;
+                case 3: scanner.close();
+                        return;
             }
 
 
