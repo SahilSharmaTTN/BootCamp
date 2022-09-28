@@ -1,50 +1,30 @@
-import java.io.FileWriter;
-import java.io.IOException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
-public class Bank {
+abstract public class Bank {
     protected String bankName;
     protected String ifsc;
-    protected double roi;
-
     protected ArrayList<Account> accountsList ;
 
     public Bank() {
     }
 
-    public Bank(String bankName, String ifsc, double roi) {
+    public Bank(String bankName, String ifsc) {
         this.bankName = bankName;
         this.ifsc = ifsc;
-        this.roi = roi;
     }
 
-    void printDetails() {
-        System.out.println("Name :" + this.bankName);
-        System.out.println("ifsc :" + this.ifsc);
-        System.out.println("roi :" + this.roi);
-    }
+    abstract void printDetails();
 
-    void transactionLog(String accNum,String type ,double balance,double amount,boolean status){
-        try {
-            FileWriter myWriter = new FileWriter("/home/sahils/abc.txt");
-            String timeStamp = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new java.util.Date());
-            myWriter.write("Acc : "+accNum + " timestamp:" + timeStamp+ " Old balance:"+balance
-                    +" New Balance" + (balance - amount) + " Type: " + type + " Status:" + status);
-            myWriter.close();
-            System.out.println("Successfully wrote to the file.");
 
-        } catch (IOException e) {
-            System.out.println("An error occurred.");
-            e.printStackTrace();
-        }
-    }
+    abstract void transactionLog(String accNum,String type ,double oldBalance,double newBalance,double amount,boolean status);
+
 
     void deposit(int amount, String accNum) {
         for (Account account : accountsList) {
             if (accNum.equals(account.getAccountNumber())) {
-                account.balance = account.balance + amount;
-                transactionLog(accNum,"Deposit", account.balance,amount,true);
+                transactionLog(accNum,"Deposit", account.getBalance(),account.getBalance()+amount,amount,true);
+                account.setBalance(account.getBalance() + amount);
+
                 return;
             }
         }
@@ -54,13 +34,15 @@ public class Bank {
         for (Account account : accountsList) {
             if (accNum.equals(account.getAccountNumber())) {
 
-                if (amount > account.balance) {
-                    transactionLog(accNum, "Withdrawal",account.balance,amount,false);
+                if (amount > account.getBalance()) {
+                    transactionLog(accNum, "Withdrawal",account.getBalance(),account.getBalance(),amount,false);
                     throw new InsufficientAmountException("Insufficient Balance");
 
+
                 } else {
-                    account.balance = account.balance - amount;
-                    transactionLog(accNum, "Withdrawal",account.balance,amount,true);
+
+                    transactionLog(accNum, "Withdrawal",account.getBalance(),account.getBalance()-amount,amount,true);
+                    account.setBalance(account.getBalance() - amount);
                 }
             }
         }

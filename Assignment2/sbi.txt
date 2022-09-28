@@ -1,0 +1,11 @@
+-------------------------SBI TRANSACTION LOGS------------------------
+Acc : SBIA123 timestamp:2022.09.28.16.04.18 Old balance:Rs1000.0 New Balance: Rs1500.0 Type: Deposit Status:true
+Acc : SBIA123 timestamp:2022.09.28.16.04.18 Old balance:Rs1500.0 New Balance: Rs1500.0 Type: Withdrawal Status:false
+Acc : SBIA123 timestamp:2022.09.28.16.51.17 Old balance:Rs1000.0 New Balance: Rs1500.0 Type: Deposit Status:true
+Acc : SBIA123 timestamp:2022.09.28.16.51.17 Old balance:Rs1500.0 New Balance: Rs1500.0 Type: Withdrawal Status:false
+Acc : SBIA123 timestamp:2022.09.28.16.54.44 Old balance:Rs1000.0 New Balance: Rs1500.0 Type: Deposit Status:true
+Acc : SBIB123 timestamp:2022.09.28.16.54.44 Old balance:Rs10000.0 New Balance: Rs8000.0 Type: Withdrawal Status:true
+Acc : SBIA123 timestamp:2022.09.28.16.55.01 Old balance:Rs1000.0 New Balance: Rs1500.0 Type: Deposit Status:true
+Acc : SBIB123 timestamp:2022.09.28.16.55.01 Old balance:Rs10000.0 New Balance: Rs8000.0 Type: Withdrawal Status:true
+Acc : SBIA123 timestamp:2022.09.28.16.56.42 Old balance:Rs1000.0 New Balance: Rs1500.0 Type: Deposit Status:true
+Acc : SBIB123 timestamp:2022.09.28.16.56.42 Old balance:Rs10000.0 New Balance: Rs8000.0 Type: Withdrawal Status:true

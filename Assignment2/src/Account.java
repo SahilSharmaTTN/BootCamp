@@ -1,17 +1,18 @@
 
-enum Type{
-    SAVINGS,
-    CURRENT;
-}
-public class Account {
-    String accountNumber;
-    String holderName;
-    double balance;
 
-    public Account(String accountNumber, String holderName, double balance) {
+public class Account {
+    private String accountNumber;
+    private String holderName;
+    private double balance;
+
+    Main.Type accountType;
+
+
+    public Account(String accountNumber, String holderName, double balance, Main.Type accountType) {
         this.accountNumber = accountNumber;
         this.holderName = holderName;
         this.balance = balance;
+        this.accountType = accountType;
     }
 
     public String getAccountNumber() {
