@@ -2,7 +2,7 @@ package Q1;
 
 @FunctionalInterface
 interface GreaterThan {
-    public boolean Greater(int a, int b);
+    boolean Greater(int a, int b);
 }
 
 @FunctionalInterface

@@ -36,5 +36,28 @@ public class Employee {
         this.designation = designation;
     }
 
+    @Override
+    public String toString() {
+        return name + " " +age + " " + designation;
+    }
 
+    @Override
+    public boolean equals(Object o) {
+
+        Employee e1 = (Employee) o;
+        if(this.name.equals(e1.getName())){
+            if(this.designation.equals(e1.getDesignation())){
+                if(this.age == e1.getAge()){
+                    return true;
+                }
+            }
+
+        }
+        return false;
+    }
+
+    @Override
+    public int hashCode() {
+        return name.hashCode();
+    }
 }
