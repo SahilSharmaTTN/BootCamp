@@ -19,12 +19,12 @@ public class Main {
 
         specialStack.printStack();
 
-        specialStack.push(7);
+       // specialStack.push(7);
 
         System.out.println("Element Popped :" + specialStack.pop());
 
 
-
+        System.out.println("Minimum Element : " + specialStack.getMin());
 
 
     }

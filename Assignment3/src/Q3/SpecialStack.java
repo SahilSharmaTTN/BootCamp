@@ -60,10 +60,11 @@ public class SpecialStack {
 
     }
     public int getMin(){
-        return 0;
+        return minValue;
     }
 
     public void printStack(){
+
             for(int i = top; i >= 0; i--){
                 System.out.println(arr[i]);
             }

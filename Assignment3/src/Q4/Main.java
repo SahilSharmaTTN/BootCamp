@@ -4,6 +4,7 @@ import java.util.HashMap;
 
 public class Main {
     public static void main(String[] args) {
+
         HashMap<Employee,Double> empSals =  new HashMap<>();
 
         Employee e1 =  new Employee("A" , 22,"JVM");

@@ -1,3 +1,9 @@
 ------------BANK OF INDIA TRANSACTION LOGS---------
 Acc : BOIA123 timestamp:2022.09.28.16.56.42 Old balance:Rs5000.0 New Balance:Rs5500.0 Type: Deposit Status:true
 Acc : BOIB123 timestamp:2022.09.28.16.56.42 Old balance:Rs50000.0 New Balance:Rs10000.0 Type: Withdrawal Status:true
+Acc : BOIA123 timestamp:2022.09.29.09.57.45 Old balance:Rs5000.0 New Balance:Rs5500.0 Type: Deposit Status:true
+Acc : BOIB123 timestamp:2022.09.29.09.57.45 Old balance:Rs50000.0 New Balance:Rs10000.0 Type: Withdrawal Status:true
+Acc : BOIA123 timestamp:2022.09.29.09.58.11 Old balance:Rs5000.0 New Balance:Rs5500.0 Type: Deposit Status:true
+Acc : BOIB123 timestamp:2022.09.29.09.58.11 Old balance:Rs50000.0 New Balance:Rs10000.0 Type: Withdrawal Status:true
+Acc : BOIA123 timestamp:2022.09.29.16.21.27 Old balance:Rs5000.0 New Balance:Rs5500.0 Type: Deposit Status:true
+Acc : BOIB123 timestamp:2022.09.29.16.21.27 Old balance:Rs50000.0 New Balance:Rs10000.0 Type: Withdrawal Status:true
