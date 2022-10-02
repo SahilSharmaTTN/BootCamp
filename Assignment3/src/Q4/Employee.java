@@ -44,6 +44,14 @@ public class Employee {
     @Override
     public boolean equals(Object o) {
 
+        if (o == this) {
+            return true;
+        }
+
+        if (!(o instanceof Employee)) {
+            return false;
+        }
+
         Employee e1 = (Employee) o;
         if(this.name.equals(e1.getName())){
             if(this.designation.equals(e1.getDesignation())){
