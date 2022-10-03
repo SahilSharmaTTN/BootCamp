@@ -21,6 +21,7 @@ record Student(String name, Integer id, Integer age){
 
 public class Question11 {
     public static void main(String[] args) {
+
         Student s1 = new Student("Sahil",1,23);
         Student s2 = new Student("Sahil",1,23);
         Student s3 = new Student("Sahil",1,23);
