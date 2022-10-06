@@ -3,16 +3,18 @@ package Q4;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 
 public class Main {
     public static void main(String[] args) {
 
         System.out.println("Part 1 answer");
-        List<Integer> list = Arrays.asList(1, 2, 3, 4, 5, 6);
-        list.stream()
-                .map(e -> e * 2)
-                .forEach(System.out::println);
+
+        System.out.println(Arrays.asList(1, 2, 3, 4, 5, 6,7,8,9,10).stream()
+                        .filter(e -> e%2==0)
+                        .collect(Collectors.toList()));
+//                .forEach(System.out::println);
         System.out.println("---------------------");
 
 
