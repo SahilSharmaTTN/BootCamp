@@ -3,12 +3,11 @@ package Q3;
 public class SynchBlock {
     static Integer count = 0;
 
-    public void display(String message) {
+    public void display(String message) throws InterruptedException {
 
         synchronized (this) {
             count++;
             System.out.println(message +" "+ Thread.currentThread().getName() + " " + count);
-
         }
 
     }
@@ -18,14 +17,16 @@ public class SynchBlock {
         SynchBlock obj = new SynchBlock();
 
         Thread t1 = new Thread(() -> {
+            Thread.currentThread().setName("A");
             for (int i = 0; i < 5; i++) {
 
-                obj.display("FIZZ");
                 try {
-                    Thread.sleep(2000);
+                    obj.display("FIZZ");
+                    Thread.sleep(1000);
                 } catch (InterruptedException e) {
                     throw new RuntimeException(e);
                 }
+
 
             }
 
@@ -33,15 +34,20 @@ public class SynchBlock {
 
 
         Thread t2 = new Thread(() -> {
+
+            Thread.currentThread().setName("B");
+
             for (int i = 0; i < 5; i++) {
 
-                obj.display("BUZZ");
-
                 try {
-                    Thread.sleep(2000);
+                    obj.display("BUZZ");
+                    Thread.sleep(1000);
                 } catch (InterruptedException e) {
                     throw new RuntimeException(e);
                 }
+
+
+
             }
 
         });
@@ -49,5 +55,6 @@ public class SynchBlock {
 
         t1.start();
         t2.start();
+
     }
 }
