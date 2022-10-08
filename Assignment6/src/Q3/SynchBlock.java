@@ -27,7 +27,6 @@ public class SynchBlock {
                     throw new RuntimeException(e);
                 }
 
-
             }
 
         });
@@ -45,8 +44,6 @@ public class SynchBlock {
                 } catch (InterruptedException e) {
                     throw new RuntimeException(e);
                 }
-
-
 
             }
 

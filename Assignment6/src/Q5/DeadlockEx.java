@@ -1,44 +1,47 @@
 package Q5;
 
 public class DeadlockEx {
-    public static Object Lock1 = new Object();
-    public static Object Lock2 = new Object();
+        public static void main(String[] args){
 
-    public static void main(String args[]) {
-        ThreadDemo1 T1 = new ThreadDemo1();
-        ThreadDemo2 T2 = new ThreadDemo2();
-        T1.start();
-        T2.start();
-    }
 
-    private static class ThreadDemo1 extends Thread {
-        public void run() {
-            synchronized (Lock1) {
-                System.out.println("Thread 1: Holding lock 1...");
+            final String r1 = "Resource1";
+            final String r2 = "Resource2";
 
-                try { Thread.sleep(10); }
-                catch (InterruptedException e) {}
-                System.out.println("Thread 1: Waiting for lock 2...");
+            Thread t1 = new Thread(() -> {
 
-                synchronized (Lock2) {
-                    System.out.println("Thread 1: Holding lock 1 & 2...");
+                synchronized(r1){
+
+                    System.out.println("Thread 1: Locked r1");
+
+                    try{
+                        Thread.sleep(100);
+                        System.out.println("Thread 1: Waiting for r2");
+                    }
+                    catch (InterruptedException e) {
+                    }
+                    synchronized(r2){
+                        System.out.println("Thread 1: Locked r2");
+                    }
                 }
-            }
-        }
-    }
-    private static class ThreadDemo2 extends Thread {
-        public void run() {
-            synchronized (Lock2) {
-                System.out.println("Thread 2: Holding lock 2...");
+            });
+            Thread t2 = new Thread(() -> {
+                synchronized(r2){
+                    System.out.println("Thread 2: Locked r2");
+                    try{
+                        Thread.sleep(100);
+                        System.out.println("Thread 2: Waiting for r1");
+                    } catch( InterruptedException e) {
 
-                try { Thread.sleep(10); }
-                catch (InterruptedException e) {}
-                System.out.println("Thread 2: Waiting for lock 1...");
-
-                synchronized (Lock1) {
-                    System.out.println("Thread 2: Holding lock 1 & 2...");
+                    }
+                    synchronized(r1){
+                        System.out.println("Thread 2: Locked r1");
+                    }
                 }
-            }
+            });
+
+            t1.start();
+            t2.start();
         }
-    }
+
+
 }
